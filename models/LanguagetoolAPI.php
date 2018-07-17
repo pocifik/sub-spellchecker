@@ -4,7 +4,7 @@ namespace models;
 
 class LanguagetoolAPI
 {
-    protected const url = 'http://java:8081/v2/check';
+    const url = 'http://java:8081/v2/check';
 
     public static function sendRequest($text)
     {
