@@ -8,8 +8,8 @@ class SubParser
 {
     protected $file;
 
-    protected const max_size = 1024 * 1024 * 16;
-    protected const types = [
+    const max_size = 1024 * 1024 * 16;
+    const types = [
         'text/x-ssa',
     ];
 
