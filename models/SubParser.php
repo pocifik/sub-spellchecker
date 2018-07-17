@@ -12,6 +12,10 @@ class SubParser
     const types = [
         'text/x-ssa',
     ];
+    const extension = [
+        'ass',
+        'sass'
+    ];
 
     protected $error_message;
 
@@ -41,8 +45,8 @@ class SubParser
             return false;
         }
 
-        if (!in_array($this->file->type, self::types)) {
-            $this->error_message = "Wrong file type. Expect 'ssa/ass (text/x-ssa)'. Given '{$this->file->type}'";
+        if (!in_array($this->file->extension, self::extension)) {
+            $this->error_message = "Wrong file type. Expect 'ssa/ass'. Given '{$this->file->extension}'";
             return false;
         }
 

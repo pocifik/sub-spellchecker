@@ -8,6 +8,7 @@ class SubFile
     public $type;
     public $size;
     public $path;
+    public $extension;
 
     public function __construct($name, $type, $size, $path)
     {
@@ -15,5 +16,6 @@ class SubFile
         $this->type = $type;
         $this->size = $size;
         $this->path = $path;
+        $this->extension = pathinfo($name)['extension'];
     }
 }
