@@ -33,6 +33,7 @@ class LanguagetoolAPI
              $output[$match['line']]['text'] = $match['dialogue'];
              $output[$match['line']]['errors'][] = [
                  'message' => $match['message'],
+                 'wtf'     => $match['shortMessage'],
                  'replace' => $match['replacements'],
                  'offset'  => $match['offset'],
                  'length'  => $match['length'],
