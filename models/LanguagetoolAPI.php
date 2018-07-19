@@ -36,7 +36,7 @@ class LanguagetoolAPI
                  'replace' => $match['replacements'],
                  'offset'  => $match['offset'],
                  'length'  => $match['length'],
-                 'type'    => $match['rule']['category']['name'],
+                 'type'    => $match['rule'],
              ];
          }
 
