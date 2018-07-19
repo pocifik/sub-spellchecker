@@ -1,5 +1,4 @@
 <form method="post" action="/save">
-<input type="hidden" name="filename" value="">
 <?php foreach ($data['matches'] as $key => $match) : ?>
 <div class="card mb-3">
     <div class="card-header">
@@ -23,8 +22,11 @@
 
         ?>
         <div class="error-block" id="error-block-<?= $key ?>-<?= $local_key ?>" data-offset="<?= $error['offset'] ?>" data-length="<?= $error['length'] ?>">
-            <div class="p-2 mb-2 rounded border">
+            <div class="d-inline-block p-2 mb-2 rounded border">
                 <span><?= mb_substr($match['tags'], 0, $error['offset']) ?></span><span class="text-danger"><?= $error_tag_text ?></span><span><?= mb_substr($match['tags'], $error['offset'] + $error['length'], -1) ?></span>
+            </div>
+            <div class="d-inline-block">
+                 - <?= $error['type'] ?>
             </div>
             <div class="d-block my-2 w-50">
                 <div class="input-group">

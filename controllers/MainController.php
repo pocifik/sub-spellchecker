@@ -54,7 +54,7 @@ class MainController extends BaseController
         foreach ($post_dialogues as $key => $post_dialog) {
             $len = mb_strlen($dialogues[$key]['text']) - $dialogues[$key]['offset'];
             $dialogue = StringHelper::mb_substr_replace($dialogues[$key]['text'], $post_dialog, $dialogues[$key]['offset'], $len);
-            $dialogue = preg_replace('/\{\\\N\}/', '\N', $dialogue);
+            $dialogue = preg_replace('/\s\{\\\N\}/', '\N', $dialogue);
             $content[$key] = $dialogue;
         }
 

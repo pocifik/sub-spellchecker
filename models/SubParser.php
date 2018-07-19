@@ -71,8 +71,7 @@ class SubParser
             $text = $matches[1];
             if (preg_match('/{.*\\\p[1-9].*}/', $text[0]))
                 continue;
-            $text_formatted = preg_replace('/\\\N/', '{\N}', $text[0]);
-            //$text_formatted = preg_split('/({.*?})/', $text_formatted, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY | PREG_SPLIT_OFFSET_CAPTURE);
+            $text_formatted = preg_replace('/\\\N/', ' {\N}', $text[0]);
             $texts[$key] = $text_formatted;
             $dialogues[$key] = [
                 'text' => $dialogues[$key],
@@ -80,54 +79,9 @@ class SubParser
             ];
         }
 
-
-
-        /*
-
         $final_text = '';
-
         foreach ($texts as $key => $text) {
-            foreach ($text[2] as $item) {
-                if ($item[0][0] != '{') {
-                    $final_text .= '{l'.$key.'}{o'.$text[1].'}' . $item[0];
-                }
-            }
-        }
-
-        //print_r($final_text);
-
-        $api = LanguagetoolAPI::sendRequest($final_text);
-
-        foreach ($api as $item) {
-            if (preg_match('/{l(\d+)}{o(\d+)}/', $item['text'], $matches)) {
-                $text = $item['text'];
-                //$text =  preg_replace('/{l(\d+)}{o(\d+)}/', '', $item['text']);
-                $line = $matches[1];
-                $offset = $matches[2];
-
-                $final_text = $this->mb_substr_replace($final_text, $item['replace']['value'], $item['offset'], $item['length']);
-                //$dialogues[$line] = substr_replace($dialogues[$line], $text, $offset);
-            }
-        }
-
-        preg_match_all('/{l(\d+)}{o(\d+)}(.+)/', $final_text, $matches);
-
-        print_r($matches);
-        die();
-
-        */
-
-        $final_text = '';
-        $count = 0;
-        foreach ($texts as $key => $text) {
-            $count++;
-            if ($count > 1000)
-                break;
-            //foreach ($text as $item) {
-                //if ($item[0][0] != '{') {
-                    $final_text .= "[\d$key]" . $text;
-                //}
-            //}
+            $final_text .= "[\d$key]" . $text;
         }
 
         $matches = LanguagetoolAPI::sendRequest($final_text);
