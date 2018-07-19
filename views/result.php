@@ -26,7 +26,7 @@
                 <span><?= mb_substr($match['tags'], 0, $error['offset']) ?></span><span class="text-danger"><?= $error_tag_text ?></span><span><?= mb_substr($match['tags'], $error['offset'] + $error['length'], -1) ?></span>
             </div>
             <div class="d-inline-block">
-                 - <?= $error['type'] ?>
+                 - <?= print_r($error['type'], true) ?>
             </div>
             <div class="d-block my-2 w-50">
                 <div class="input-group">
