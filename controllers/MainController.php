@@ -67,7 +67,5 @@ class MainController extends BaseController
         foreach ($content as $value) {
             echo $value;
         }
-        exit();
-
     }
 }

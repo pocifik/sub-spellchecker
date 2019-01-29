@@ -10,11 +10,11 @@ $error = Core::$session->get('errors', true);
 
 ?>
 
-<? if (isset($error)) : ?>
+<?php if (isset($error)) : ?>
     <div class="alert alert-danger" role="alert">
         <strong>Error!</strong> <?= $error ?>
     </div>
-<? endif; ?>
+<?php endif; ?>
 <div class="card">
     <div class="card-header"><strong>SUB Spellchecker</strong><br><small>Upload your sub file</small></div>
     <div class="card-body">
